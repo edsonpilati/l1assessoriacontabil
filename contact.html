@@ -181,70 +181,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100949.24429313939!2d-122.44206553967531!3d37.75102885910819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1472190196783" class="map" style="border:0" allowfullscreen=""></iframe>
     </div>
 
-    <!-- /newsletter -->
-    <footer class="newsletter_right_w3_agileits bg-dark pymd-5 py-4">
-            <div class="container">
-                <div class="inner-sec-w3ls py-md-5 py-3">
-                    <div class="row mb-md-4 mb-3">
-    
-                        <div class="col-md-6 n-right tex-left">
-                            <h3 class="tittle foot mb-md-5 mb-4 text-white">Inscriva-se para as notícias</h3>
-                            <form action="#" method="post">
-                                <div class="form-group d-flex">
-                                    <input class="form-control" type="email" name="Email" placeholder="email" required="">
-                                    <input class="form-control submit text-uppercase" type="submit" value="Inscrever">
-                                </div>
-    
-                            </form>
-                            <div class="copyright mt-md-5 mt-3">
-                                <h2><a class="navbar-brand" href="index.html">
-                                        L1 Assessoria Contábil</a></h2>
-                                <p class="copy-right-w3ls mt-3">© 2019 L1 Assessoria Contábil. Todos Direitos Reservados | Design by
-                                    <a href="http://w3layouts.com/"> W3layouts </a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 social-info text-right">
-                            <h3 class="tittle foot mb-md-3 mb-4 text-white">Junte-se a nós nas seguintes redes sociais</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore.</p>
-                            <div class="social-icon footer mt-3">
-                                <ul class="links-nav d-flex justify-content-end">
-                                    <li>
-                                        <a class="active" href="index.html">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="about.html">Sobre</a>
-                                    </li>
-    
-                                    <li>
-                                        <a href="price.html">Planos</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog.html">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">Contato</a>
-                                    </li>
-                                </ul>
-                                <ul class="social-icons justify-content-end mt-md-5 mt-3">
-                                    <li class="mr-1"><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li class="mx-1"><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li class="mx-1"><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li class="mx-1"><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                            </div>
-    
-                        </div>
-                    </div>
-    
-    
-                </div>
-            </div>
-        </footer>
-    <!--//newsletter-->
+    <!-- /footer -->
+    <footer class="newsletter_right_w3_agileits bg-dark pymd-5 py-4"> 
+        <div data-includeHTML="footer.html"></div>
+    </footer>
+     <!-- //footer -->
+
     <!--model-forms-->
     <!--/Login-->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -280,10 +225,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
         </div>
-    </div>
+    </div> -->
     <!--//Login-->
     <!--/Register-->
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -325,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
         </div>
-    </div>
+    </div> -->
     <!--//Register-->
 
     <!--//model-form-->
@@ -410,6 +355,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- /js -->
     <script src="js/bootstrap.js"></script>
     <!-- //js -->
+
+    <!-- /inclusão dos formulários -->
+    <script> 
+        $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {                
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+    </script>
+    <!-- //inclusão dos formulários -->
 </body>
 
 </html>
