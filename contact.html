@@ -11,8 +11,7 @@
     <title>L1 Assessoria Contábil | Contato</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Startled a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta name="keywords" content="Contabilidade, Contábil, Consultoria, Assessoria, Declaração Imposto de Renda, Abertura de Empresa, MEI, Nota Fiscal, NF, Empresa, Start Up, Empreendedor, Empresário" />
     <script>
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -28,6 +27,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/fontawesome-all.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <!-- Alertify -->
+    <!-- include the script -->
+    <script src="js/alertifyjs/alertify.min.js"></script>
+    <!-- include the style -->
+    <link rel="stylesheet" href="js/alertifyjs/css/alertify.min.css" />
+    <!-- include a theme -->
+    <link rel="stylesheet" href="js/alertifyjs/css/themes/default.min.css" />
+
+    <!-- serialize -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
@@ -94,32 +103,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
                 <div class="contact_grid_right">
-                    <form action="#" method="post">
+                    <form action="https://formspree.io/l1.suportecontabil@gmail.com" id="contact-form" method="POST">
+                        <input type="hidden" name="_language" value="pt-BR" />
                         <div class="row contact_left_grid">
                             <div class="col-md-6 con-left">
                                 <div class="form-group">
                                     <label class="my-2">Nome</label>
-                                    <input class="form-control" type="text" name="Name" placeholder="" required="">
+                                    <input class="form-control" type="text" id="inputName" name="name" >
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input class="form-control" type="email" name="Email" placeholder="" required="">
+                                    <input class="form-control" type="email" id="inputEmail" name="email" >
                                 </div>
                                 <div class="form-group">
-                                    <label class="my-2">Empresa</label>
-                                    <input class="form-control" type="text" name="Subject" placeholder="" required="">
+                                    <label>Telefone</label>
+                                    <input class="form-control" type="text" id="inputTelefone" name="tel" >
                                 </div>
                             </div>
                             <div class="col-md-6 con-right">
                                 <div class="form-group">
                                     <label>Mensagem</label>
-                                    <textarea id="textarea" placeholder="" required=""></textarea>
+                                    <textarea name="message" id="inputMessage"></textarea>
                                 </div>
                                 <input class="form-control" type="submit" value="Enviar">
-
+                                <!-- <input class="form-control" type="button" onclick="alertify.alert('Ready!');" value="Enviar"> -->
                             </div>
                         </div>
                     </form>
+                    <!-- <form action="https://formspree.io/your@email.com" method="POST">
+                        <input type="text" name="name">
+                        <input type="email" name="_replyto">
+                        <input type="submit" value="Send">
+                      </form> -->
                 </div>
             </div>
         </div>
@@ -313,6 +328,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
     </script>
     <!-- //inclusão dos formulários -->
+    <script>
+    $('#contact-form').submit(function(e){
+        var name = document.getElementById('#inputName'),
+        email = document.getElementById('#inputEmail'),
+        message = document.getElementById('#inputMessage'),
+        telefone = document.getElementById('#inputTelefone');
+
+        if (!name.value || !email.value || message.value || message.telefone){
+            alertify.error('Por favor verifique os campos');
+        }
+        else{
+            $.ajax({
+                url: "https:formspree.io/l1.suportecontabil@gmail.com",
+                method : "POST",
+                data: $(this).serialize(),
+                dataType: "json"
+            });
+            e.preventDefault();
+            $(this).get(0).reset();
+            alertify.success('Mensagem Enviada com Sucesso!');
+        }
+    })
+    </script>
+    
 </body>
 
 </html>
