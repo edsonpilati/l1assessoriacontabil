@@ -5,7 +5,7 @@
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="pt-BR">
 
 <head>
     <title>L1 Assessoria Contábil | Contato</title>
@@ -37,6 +37,10 @@
 
     <!-- serialize -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!-- Inclusão do Plugin jQuery Validation-->
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
 </head>
 
 <body>
@@ -108,22 +112,22 @@
                         <div class="row contact_left_grid">
                             <div class="col-md-6 con-left">
                                 <div class="form-group">
-                                    <label class="my-2">Nome</label>
-                                    <input class="form-control" type="text" id="inputName" name="name" >
+                                    <label class="my-2" for="inputNome">Nome</label>
+                                    <input class="form-control" type="text" id="inputNome" name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Email</label>
-                                    <input class="form-control" type="email" id="inputEmail" name="email" >
+                                    <label for="inputEmail">Email</label>
+                                    <input class="form-control" type="email" id="inputEmail" name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Telefone</label>
-                                    <input class="form-control" type="text" id="inputTelefone" name="tel" >
+                                    <label for="inputTelefone">Telefone</label>
+                                    <input class="form-control" type="text" id="inputTelefone" name="telefone" required>
                                 </div>
                             </div>
                             <div class="col-md-6 con-right">
                                 <div class="form-group">
-                                    <label>Mensagem</label>
-                                    <textarea name="message" id="inputMessage"></textarea>
+                                    <label for="inputMensagem">Mensagem</label>
+                                    <textarea name="message" id="inputMensagem" required></textarea>
                                 </div>
                                 <input class="form-control" type="submit" value="Enviar">
                                 <!-- <input class="form-control" type="button" onclick="alertify.alert('Ready!');" value="Enviar"> -->
@@ -330,25 +334,20 @@
     <!-- //inclusão dos formulários -->
     <script>
     $('#contact-form').submit(function(e){
-        var name = document.getElementById('#inputName'),
-        email = document.getElementById('#inputEmail'),
-        message = document.getElementById('#inputMessage'),
-        telefone = document.getElementById('#inputTelefone');
+        //Validação simples
+        $("#contact-form").validate();
 
-        if (!name.value || !email.value || message.value || message.telefone){
-            alertify.error('Por favor verifique os campos');
-        }
-        else{
-            $.ajax({
-                url: "https:formspree.io/l1.suportecontabil@gmail.com",
-                method : "POST",
-                data: $(this).serialize(),
-                dataType: "json"
-            });
-            e.preventDefault();
-            $(this).get(0).reset();
-            alertify.success('Mensagem Enviada com Sucesso!');
-        }
+        $.ajax({
+            url: "https:formspree.io/l1.suportecontabil@gmail.com",
+            method : "POST",
+            data: $(this).serialize(),
+            dataType: "json"
+        });
+        e.preventDefault();
+        $(this).get(0).reset();
+        alertify.success('Mensagem Enviada com Sucesso!');
+
+        
     })
     </script>
     
